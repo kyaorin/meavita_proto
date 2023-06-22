@@ -1,41 +1,3 @@
-<?php
-
-// var_dump($_POST);
-// exit();
-
-$name = $_POST["name"];
-$email = $_POST["email"];
-$age = $_POST["age"];
-$profession = $_POST["profession"];
-$child = $_POST["child"];
-$find = $_POST["find"];
-$worry = $_POST["worry"];
-$limit = $_POST["limit"];
-$service = $_POST["service"];
-
-session_start();
-$_SESSION["name"] = $name;
-$_SESSION["email"] = $email;
-$_SESSION["age"] = $age;
-$_SESSION["profession"] = $profession;
-$_SESSION["child"] = $child;
-$_SESSION["find"] = $find;
-$_SESSION["worry"] = $worry;
-$_SESSION["limit"] = $limit;
-$_SESSION["service"] = $service;
-
-// echo $name;
-// echo $email;
-// echo $age;
-// echo $profession;
-// echo $child;
-// echo $find;
-// echo $worry;
-// echo $limit;
-// echo $service;
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -51,7 +13,7 @@ $_SESSION["service"] = $service;
 <body>
 
     <header>
-        <h2><?= $name ?>さんのキャリアノート</h2>
+        <h2>▲▲さんのキャリアノート</h2>
         <div class="user_wrapper" id="user_wrapper">
             <button class="logout" id="logout">ログアウト</button>
             <a href="user_info.php"><button class="userinfo" id="userinfo">会員情報</button></a>
@@ -96,8 +58,15 @@ $_SESSION["service"] = $service;
 
 
     <script>
+        //ログアウト処理//
+        $("#logout").on("click", function() {
+            location.href = "login.php"
+        });
+
+
+
         //////////////////////////////////////////////////////////////////
-        ///人生に影響を与えた本にマウスを合わせるとクリック画像と切り替わる///// 
+        ///人生に影響を与えた本にマウスを合わせるとクリック画像と切り替わる/////
         //////////////////////////////////////////////////////////////////
 
         $(document).ready(function() {
@@ -139,7 +108,7 @@ $_SESSION["service"] = $service;
 
         ///////////////////////////////////////////////////
         ///１日１問にマウスを合わせるとクリック画像と切り替わるが
-        ///一度クリックすると表示された画像が出続ける///// 
+        ///一度クリックすると表示された画像が出続ける/////
         ///////////////////////////////////////////////////
 
         $(document).ready(function() {
@@ -180,7 +149,7 @@ $_SESSION["service"] = $service;
         });
 
         //////////////////////////////////////////////////////////////////
-        ///名言集にマウスを合わせるとクリック画像と切り替わる///// 
+        ///名言集にマウスを合わせるとクリック画像と切り替わる/////
         //////////////////////////////////////////////////////////////////
 
         $(document).ready(function() {

@@ -42,8 +42,8 @@ try {
 
 
 // SQL作成&実行
-$sql = 'INSERT INTO meavita_user_table (id, u_name, u_email, u_password,workstyle,find,life_flg,created_at, updated_at) 
-VALUES (NULL, :u_name, :u_email, :u_password, :workstyle, :find, :life_flg, now(), now())';
+$sql = 'INSERT INTO meavita_user_table (id, u_name, u_email, u_password,workstyle,find,created_at, updated_at) 
+VALUES (NULL, :u_name, :u_email, :u_password, :workstyle, :find,now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
@@ -53,7 +53,7 @@ $stmt->bindValue(':u_email', $email, PDO::PARAM_STR);
 $stmt->bindValue(':u_password', $password, PDO::PARAM_STR);
 $stmt->bindValue(':workstyle', $workstyle, PDO::PARAM_STR);
 $stmt->bindValue(':find', $find, PDO::PARAM_STR);
-$stmt->bindValue(':life_flg', $life_flag, PDO::PARAM_STR);
+
 
 // SQL実行（実行に失敗すると `sql error ...` が出力される）
 try {
@@ -66,5 +66,5 @@ try {
 
 // SQL実行の処理
 
-header('Location:register_input.php');
+header('Location:user_page.php');
 exit();
