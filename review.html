@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/sanitize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>ミアビータ会員専用ページ</title>
+</head>
+
+<body>
+
+    <main>
+        <div class="review_wrapper" id="review_wrapper">
+            <div class="review_title">
+                <h2>今週の振返り</h2>
+                <div class="weekly_term">
+                    <h3 id="mon_date"></h3>
+                    <h3>（月）〜</h3>
+                    <h3 id="sun_date"></h3>
+                    <h3>（日）</h3>
+                </div>
+            </div>
+            <div class="review_row1">
+                <div class="review">
+                    <h3>Monday</h3>
+                    <!-- <p class="record text" id="mon_date"></p>-->
+                    <p class="record text" id="mon_text"></p>
+                    <P class="record textarea" id="montext_area"></P>
+                </div>
+                <div class="review">
+                    <h3>Tuesday</h3>
+                    <!-- <p class="record text" id="tue_date"></p>-->
+                    <p class="record text" id="tue_text"></p>
+                    <P class="record textarea" id="tuetext_area"></P>
+                </div>
+                <div class="review">
+                    <h3>Wednesday</h3>
+                    <!-- <p class="record text" id="wed_date"></p>-->
+                    <p class="record text" id="wed_text"></p>
+                    <P class="record textarea" id="wedtext_area"></P>
+                </div>
+            </div>
+            <div class="review_row2">
+                <div class="review">
+                    <h3>Thursday</h3>
+                    <!-- <p class="record text" id="thr_date"></p>-->
+                    <p class="record text" id="thr_text"></p>
+                    <P class="record textarea" id="thrtext_area"></P>
+                </div>
+                <div class="review">
+                    <h3>Friday</h3>
+                    <!-- <p class="record text" id="fri_date"></p>-->
+                    <p class="record text" id="fri_text"></p>
+                    <P class="record textarea" id="fritext_area"></P>
+                </div>
+                <div class="review">
+                    <h3>Saturaday</h3>
+                    <!-- <p class="record text" id="sat_date"></p>-->
+                    <p class="record text" id="sat_text"></p>
+                    <P class="record textarea" id="sattext_area"></P>
+                </div>
+            </div>
+            <div class="review_row3">
+                <div class="review">
+                    <h3>Sunday</h3>
+                    <!-- <p class="record text" id="sun_date"></p>-->
+                    <p class="record text" id="sun_text"></p>
+                    <P class="record textarea" id="suntext_area"></P>
+                </div>
+                <div class="review">
+                    <p class="reviwe_qa">Q.どんな変化や気付きがありましたか？</p>
+                    <textarea class="review_text" cols="30"></textarea>
+                </div>
+                <div class="review">
+                    <p class="reviwe_qa">Q.できたこと、できなかったことは？</p>
+                    <textarea class="review_text" cols="30"></textarea>
+                </div>
+            </div>
+
+
+            <div class="review_row4">
+                <div class="review">
+                    <p class="reviwe_qa">Q.改善できそうなことはりますか？</p>
+                    <textarea class="review_text" cols="30"></textarea>
+                </div>
+                <div class="review">
+                    <p class="reviwe_qa">Q.何か手放せそうなものはありますか？</p>
+                    <textarea class="review_text" cols="30"></textarea>
+                </div>
+                <div class="review">
+                    <p class="reviwe_qa">Q.来週はどんな１週間にしたいですか？</p>
+                    <textarea class="review_text" cols="30"></textarea>
+                </div>
+            </div>
+            <button class="dl_btn">ダウンロード</button>
+        </div>
+
+    </main>
+
+
+    <script>
+
+        $(document).ready(function () {
+            const json = localStorage.getItem("weeklist");
+            const review_weeklist = JSON.parse(json)
+            const pull_mondata = review_weeklist[0];
+            const pull_tuedata = review_weeklist[1];
+            const pull_weddata = review_weeklist[2];
+            const pull_thrdata = review_weeklist[3];
+            const pull_fridata = review_weeklist[4];
+            const pull_satdata = review_weeklist[5];
+            const pull_sundata = review_weeklist[6];
+
+            if (pull_mondata) {
+                $("#mon_date").text(pull_mondata.when);
+                $("#mon_text").text(pull_mondata.title);
+                $("#montext_area").text(pull_mondata.text);
+            }
+
+            if (pull_tuedata) {
+                $("#tue_date").text(pull_tuedata.when);
+                $("#tue_text").text(pull_tuedata.title);
+                $("#tuetext_area").text(pull_tuedata.text);
+            }
+
+            if (pull_weddata) {
+                $("#wed_date").text(pull_weddata.when);
+                $("#wed_text").text(pull_weddata.title);
+                $("#wedtext_area").text(pull_weddata.text);
+            }
+
+            if (pull_thrdata) {
+                $("#thr_date").text(pull_thrdata.when);
+                $("#thr_text").text(pull_thrdata.title);
+                $("#thrtext_area").text(pull_thrdata.text);
+            }
+
+            if (pull_fridata) {
+                $("#fri_date").text(pull_fridata.when);
+                $("#fri_text").text(pull_fridata.title);
+                $("#fritext_area").text(pull_fridata.text);
+            }
+
+            if (pull_satdata) {
+                $("#sat_date").text(pull_satdata.when);
+                $("#sat_text").text(pull_satdata.title);
+                $("#sattext_area").text(pull_satdata.text);
+            }
+
+            if (pull_sundata) {
+                $("#sun_date").text(pull_sundata.when);
+                $("#sun_text").text(pull_sundata.title);
+                $("#suntext_area").text(pull_sundata.text);
+            }
+        });
+
+
+        /////振返りシートをダンロードする/////
+        ////詳細はまだ理解できておらず（byチャッピーさんによるコード）////
+
+        $(document).ready(function () {
+            $(".dl_btn").click(function () {
+                const reviewWrapperContent = $("#review_wrapper").html();
+                downloadFile(reviewWrapperContent, "review_wrapper.html");
+            });
+
+            function downloadFile(content, fileName) {
+                const link = document.createElement("a");
+                link.href = "data:text/html;charset=utf-8," + encodeURIComponent(content);
+                link.download = fileName;
+                link.style.display = "none";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+
+
+
+    </script>
+
+</body>

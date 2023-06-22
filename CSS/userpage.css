@@ -1,0 +1,113 @@
+/*初期設定
+---------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Gothic Medium",
+        "游ゴシック Medium",
+        "YuGothic",
+        "游ゴシック体",
+        "ヒラギノ角ゴ Pro W3",
+        "メイリオ",
+        sans-serif;
+}
+
+/*header コンテンツ部分のCSS
+---------------------*/
+
+h2 {
+    text-align: center;
+    margin: 40px 0 30px;
+}
+
+.user_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 0 30px;
+}
+
+/*main コンテンツ部分のCSS
+---------------------*/
+
+.button_row_1 {
+    display: flex;
+    justify-content: center;
+}
+
+.button_row_1 img {
+    width: 320px;
+    height: 320px;
+}
+
+.button_row_2 {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
+}
+
+.button_row_2 img {
+    width: 320px;
+    height: 320px;
+}
+
+
+/*---------------------*/
+/*１週間の記録部分CSS
+---------------------*/
+
+.record_txt{
+    text-align: center;
+   margin: 0 0 30px;
+}
+
+form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[name="memo"] {
+    width: 920px;
+    height: 300px;
+    font-size: 16px;
+}
+
+input[name="input_date"] {
+    width: 200px;
+    font-size: 16px;
+}
+
+
+.record {
+    display: block;
+    margin: auto;
+    margin-bottom: 60px;
+    height: 40px;
+    font-size: 18px;
+    width: 920px;
+    background-color: #52b4b9;
+}
+
+.dl {
+    display: block;
+    margin: auto;
+    margin-bottom: 120px;
+    height: 40px;
+    font-size: 16px;
+}
+
+
+/*footer
+---------------------*/
+
+.footer {
+    background-color: black;
+    padding: 30px 0;
+    color: azure;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}
