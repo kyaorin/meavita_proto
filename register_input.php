@@ -19,7 +19,7 @@
     <div class="register_wrapper">
         <div class="register_title">
             <h2>ミアビータ無料会員登録</h2>
-            <p>下記内容をご登録いただきますと、会員限定コンテンツがご利用いただけます。</p>
+            <p>下記内容をご登録いただきますと、専用ページにて会員限定コンテンツがご利用いただけます。</p>
         </div>
         <form method="POST" action="register_create.php" class="qa_wrapper">
             <div>

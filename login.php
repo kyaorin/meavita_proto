@@ -25,12 +25,12 @@
 
         <button class="new_register" id="new_register">新規登録</button>
 
-        <form action="login_act.php" method="POST">
-            <div class="login_wrapper">
-                <input type="text" name="email" placeholder="Email">
-                <input type="text" name="password" placeholder="Password">
-                <button class="login" id="login">ログイン</button>
-            </div>
+        <!-- <form action="login_act.php" method="POST"> -->
+        <div class="login_wrapper">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="password" placeholder="Password">
+            <button class="login" id="login">ログイン</button>
+        </div>
         </form>
     </header>
 
@@ -70,7 +70,7 @@
 
         //ログイン処理//
         $("#login").on("click", function() {
-            location.href = "user_page.php"
+            location.href = "free_page.php"
         });
     </script>
 

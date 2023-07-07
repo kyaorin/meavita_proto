@@ -9,45 +9,47 @@
     <title>会員専用ページ</title>
 </head>
 
+<style>
+    .user_wrapper img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .button_row_1 {
+        margin-bottom: 40px;
+    }
+
+    .footer {
+        margin-top: 120px;
+    }
+</style>
 
 <body>
 
     <header>
-        <h2>▲▲さんのキャリアノート</h2>
-        <div class="user_wrapper" id="user_wrapper">
-            <button class="logout" id="logout">ログアウト</button>
-            <a href="user_info.php"><button class="userinfo" id="userinfo">会員情報</button></a>
-        </div>
+        <h2>ようこそ〇〇さん</h2>
+        <nav class="user_wrapper" id="user_wrapper">
+            マイアカウント<a href="register_read.php"><img src="img/my_acount.png" alt="マイアカウント"></a>
+            お気に入りサポーター<img src="img/favorite_supporter.png" alt="お気に入りサポーター">
+            セッション履歴<img src="img/session_record.png" alt="セッション履歴">
+            <!-- <button class="logout" id="logout">ログアウト</button> -->
+        </nav>
     </header>
     <main>
-        <div class="button_row_1">
-            <img id="lifeplan" src="img/career_top.png" alt="キャリアの棚卸ワーク">
-            <img id="lifeplan" src="img/bemyself_top.png" alt="自分らしさ図解ワーク">
-            <img id="lifeplan" src="img/lifeplan_top.png" alt="ライフプラン表">
-        </div>
         <div class="button_row_2">
+            <a href="https://voicy.jp/channel/2571" target="_blank"><img id="voicy" src="img/voicy.png" alt="Voicy"></a>
+            <img id="lifeplan" src="img/test.png" alt="診断テスト">
+            <img id="lifeplan" src="img/movie_program.png" alt="動画プログラム">
+        </div>
+        <div class="button_row_1">
+            <img id="lifeplan" src="img/7_hints.png" alt="7つのヒント">
             <img id="book" src="img/book_top.png" alt="人生に影響を与えた本たち">
-            <img id="QA" src="img/QA_top.png" alt="１日１問">
-            <img id="word" src="img/word_top.png" alt="心を動かす名言集">
+            <img id="word" src="img/word_top.png" alt="視点が変わる名言集">
         </div>
 
-        <h2 class="record_title">《今日の記録》</h2>
-        <p class="record_txt">今日の問いに対する答え、今の気持ち、モヤモヤ、悩みなどを毎日記録しよう！</p>
-        <form action="record_txt_create.php" method="POST">
-            <div>
-                日付: <input type="date" name="input_date">
-            </div>
-            <div>
-                <input type="textarea" name="memo">
-            </div>
-            <div>
-                <button class="record">保存</button>
-            </div>
-        </form>
-
-        <!-- 振り返りシートダウンロード -->
-        <a href="record_txt_read.php"><button class="dl" id="dl">記録の一覧画面</button></a>
-
+        <div class="user_wrapper">
+            <h3>お気に入りサポーター</h3>
+        </div>
     </main>
 
     <footer class="footer">
@@ -146,6 +148,31 @@
                 const newSrc = "img/QA_" + num + ".png";
                 $("#QA").attr("src", newSrc);
             });
+        });
+
+        //////////////////////////////////////////////////////////////////
+        ///Voicyにマウスを合わせるとクリック画像と切り替わる/////
+        //////////////////////////////////////////////////////////////////
+
+        $(document).ready(function() {
+            let clicked = false;
+
+            $("#voicy").click(function() {
+                clicked = true;
+            });
+
+            $("#voicy").hover(
+                function() {
+                    if (!clicked) {
+                        $(this).attr("src", "img/click.png");
+                    }
+                },
+                function() {
+                    if (!clicked) {
+                        $(this).attr("src", "img/voicy.png");
+                    }
+                }
+            );
         });
 
         //////////////////////////////////////////////////////////////////
