@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('functions.php');
+check_session_id();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -16,7 +22,25 @@
     }
 
     .button_row_1 {
+        margin-bottom: 30px;
+    }
+
+    .button_row_2 img {
+        width: 300px;
+        height: 230px;
+        padding: 0 10px;
         margin-bottom: 40px;
+    }
+
+    .button_row_3 img {
+        width: 300px;
+        height: 300px;
+
+    }
+
+    .logout {
+        text-align: center;
+        margin-bottom: 30px;
     }
 
     .footer {
@@ -27,29 +51,55 @@
 <body>
 
     <header>
-        <h2>ようこそ〇〇さん</h2>
+        <h2><?= $_SESSION['u_name'] ?> さんのマイページ</h2>
         <nav class="user_wrapper" id="user_wrapper">
             マイアカウント<a href="register_read.php"><img src="img/my_acount.png" alt="マイアカウント"></a>
-            お気に入りサポーター<img src="img/favorite_supporter.png" alt="お気に入りサポーター">
-            セッション履歴<img src="img/session_record.png" alt="セッション履歴">
-            <!-- <button class="logout" id="logout">ログアウト</button> -->
+            おすすめサポーター<img src="img/favorite_supporter.png" alt="お気に入りサポーター">
+            セッション履歴<a href="session_input.php"><img src="img/session_record.png" alt="セッション履歴"></a>
         </nav>
+
+        <div class="logout">
+            <a href="logout.php"><button id="logout">ログアウト</button></a>
+        </div>
     </header>
     <main>
-        <div class="button_row_2">
-            <a href="https://voicy.jp/channel/2571" target="_blank"><img id="voicy" src="img/voicy.png" alt="Voicy"></a>
+        <div class="button_row_1">
             <img id="lifeplan" src="img/test.png" alt="診断テスト">
             <img id="lifeplan" src="img/movie_program.png" alt="動画プログラム">
+            <img id="lifeplan" src="img/free_session.png" alt="初回30分無料相談">
         </div>
-        <div class="button_row_1">
-            <img id="lifeplan" src="img/7_hints.png" alt="7つのヒント">
+        <!-- <div class="button_row_1">
+            <a href="https://voicy.jp/channel/2571" target="_blank"><img id="voicy" src="img/voicy.png" alt="Voicy"></a>
             <img id="book" src="img/book_top.png" alt="人生に影響を与えた本たち">
             <img id="word" src="img/word_top.png" alt="視点が変わる名言集">
-        </div>
+        </div> -->
 
         <div class="user_wrapper">
-            <h3>お気に入りサポーター</h3>
+            <h3>有料会員になると、さらに以下のキャリアサポートをご利用いただけます！</h3>
         </div>
+
+        <div class="button_row_2">
+            <img id="careerchart" src="img/case1.png" alt="キャリアカルテ">
+            <img id="community" src="img/community.png" alt="コミュニティ">
+            <img id="freesession" src="img/case3.png" alt="個別サポート">
+        </div>
+
+        <!-- <div class="button_row_2">
+            <img id="community" src="img/onestep.png" alt="コミュニティ">
+            <a href="https://meavita.jp/support2/" target="_blank"><img id="support" src="img/support.png" alt="個別サポート"></a>
+            <img id="school" src="img/nextstage.png" alt="キャリアスクール">
+        </div> -->
+
+        <div class="user_wrapper">
+            <h3>サポート詳細</h3>
+        </div>
+
+
+
+        <div class="user_wrapper">
+            <h3>PRICE</h3>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -60,10 +110,10 @@
 
 
     <script>
-        //ログアウト処理//
-        $("#logout").on("click", function() {
-            location.href = "login.php"
-        });
+        // //ログアウト処理//
+        // $("#logout").on("click", function() {
+        //     location.href = "login.php"
+        // });
 
 
 

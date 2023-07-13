@@ -17,7 +17,11 @@
 
     </header>
     <main>
-
+        <div class="button_row_1">
+            <a href="https://voicy.jp/channel/2571" target="_blank"><img id="voicy" src="img/voicy.png" alt="Voicy"></a>
+            <img id="book" src="img/book_top.png" alt="人生に影響を与えた本たち">
+            <img id="word" src="img/word_top.png" alt="視点が変わる名言集">
+        </div>
 
         <h2 class="record_title">《今日の記録》</h2>
         <p class="record_txt">今日の問いに対する答え、今の気持ち、モヤモヤ、悩みなどを毎日記録しよう！</p>

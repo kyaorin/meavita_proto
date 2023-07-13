@@ -1,29 +1,22 @@
 <?php
 session_start();
+include('functions.php');
+
+// var_dump($_POST);
+// exit();
+
+//データ受け取り
 $email = $_POST["email"];
 $password = $_POST["password"];
 
 // echo $email;
 // echo $password;
 
-// 各種項目設定
-$dbn = 'mysql:dbname=meavita_proto;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
-
-// DB接続
-try {
-    $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-    echo json_encode(["db error" => "{$e->getMessage()}"]);
-    exit();
-}
-
-// 「dbError:...」が表示されたらdb接続でエラーが発生していることがわかる．
-
+// DB接続 
+$pdo = connect_to_db();
 
 // SQL作成&実行
-$sql = "SELECT * FROM meavita_user_table WHERE u_email=:email AND u_password=:password ";
+$sql = "SELECT * FROM meavita_user_table WHERE u_email=:email AND u_password=:password AND deleted_at IS NULL ";
 
 $stmt = $pdo->prepare($sql);
 
@@ -40,6 +33,24 @@ try {
     exit();
 }
 
-// 抽出データ数を取得
-
-$val = $stmt->fetch(); //１レコードだけ取得する方法
+// ユーザーの有無で条件分岐
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$user) {
+    echo "<p>ログイン情報に誤りがあります</p>";
+    echo "<a href=login.php>ログイン</a>";
+    exit();
+} else {
+    $_SESSION = array();
+    $_SESSION['session_id'] = session_id();
+    $_SESSION['is_admin'] = $user['is_admin'];
+    $_SESSION['u_name'] = $user['u_name'];
+    $_SESSION['u_email'] = $user['u_email'];
+    $_SESSION['age'] = $user['age'];
+    $_SESSION['workstyle'] = $user['workstyle'];
+    $_SESSION['children'] = $user['children'];
+    $_SESSION['worry'] = $user['worry'];
+    $_SESSION['urgency'] = $user['urgency'];
+    $_SESSION['find'] = $user['find'];
+    header("Location:free_page.php");
+    exit();
+}

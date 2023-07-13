@@ -11,7 +11,18 @@
 
 <style>
     h2 {
+        text-align: center;
         margin-top: 40px;
+    }
+
+    .button_row_1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .button_row_1 img {
+        width: 320px;
+        height: 320px;
     }
 </style>
 
@@ -19,8 +30,14 @@
     <div class="register_wrapper">
         <div class="register_title">
             <h2>ミアビータ無料会員登録</h2>
-            <p>下記内容をご登録いただきますと、専用ページにて会員限定コンテンツがご利用いただけます。</p>
+            <p>会員登録いただきますと、専用ページにて会員限定コンテンツがご利用いただけます。</p>
         </div>
+        <div class="button_row_1">
+            <img id="lifeplan" src="img/test.png" alt="診断テスト">
+            <img id="lifeplan" src="img/movie_program.png" alt="動画プログラム">
+            <img id="lifeplan" src="img/free_session.png" alt="初回30分無料相談">
+        </div>
+        <h2>今すぐ登録！</h2>
         <form method="POST" action="register_create.php" class="qa_wrapper">
             <div>
                 <p class="q_text">Name</p>
@@ -31,10 +48,10 @@
                 <input class="textarea" type="text" id="email" name="email">
             </div>
             <div>
-                <p class="q_text">Password</p>
+                <p class="q_text">Password（6桁以上の英数字）</p>
                 <input class="textarea" type="text" id="password" name="password">
             </div>
-            <!-- <div>
+            <div>
                 <p class="q_text">年代</p>
                 <label class="question">
                     <select id="age" name="age">
@@ -44,7 +61,7 @@
                         <option value="20代">20代</option>
                     </select>
                 </label>
-            </div> -->
+            </div>
             <div>
                 <p class="q_text">ワークスタイル</p>
                 <label class="question">
@@ -59,15 +76,41 @@
                     </select>
                 </label>
             </div>
-            <!-- <div>
+            <div>
                 <p class="q_text">お子様の有無</p>
                 <label class="question">
-                    <select id="child" name="child">
+                    <select id="children" name="children">
                         <option value="いる">いる</option>
                         <option value="いない">いない</option>
                     </select>
                 </label>
-            </div> -->
+            </div>
+            <div>
+                <p class="q_text">今一番、解決したいキャリアのお悩みは何ですか？</p>
+                <label class="question">
+                    <select id="worry" name="worry">
+                        <option value="仕事にやりがいを感じられない">仕事にやりがいを感じられない</option>
+                        <option value="自分の才能や強みを知りたい">自分の才能や強みを知りたい</option>
+                        <option value="ブレない価値観や自分軸をみつけたい">ブレない価値観や自分軸をみつけたい</option>
+                        <option value="転職をしたい">転職をしたい</option>
+                        <option value="起業・複業をしたい">起業・複業をしたい</option>
+                        <option value="収入の柱を増やしたい">収入の柱を増やしたい</option>
+                        <option value="仕事と子育ての両立に悩んでいる">仕事と子育ての両立</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
+                <label class="question">
+                    <select id="urgency" name="urgency">
+                        <option value="今すぐにでも解決したい">今すぐにでも解決したい</option>
+                        <option value="半年以内に解決したい">半年以内に解決したい</option>
+                        <option value="１年以内に解決したい">１年以内に解決したい</option>
+                        <option value="2〜3年以内に解決したい">2〜3年以内に解決したい</option>
+                    </select>
+                </label>
+            </div>
             <div>
                 <p class="q_text">ミアビータを何で知りましたか？</p>
                 <label class="question">
@@ -85,31 +128,7 @@
                 </label>
             </div>
 
-            <!-- <div>
-                <p class="q_text">今一番、解決したいキャリアのお悩みは何ですか？</p>
-                <label class="question">
-                    <select id="worry" name="worry">
-                        <option value="仕事にやりがいを感じられない">仕事にやりがいを感じられない</option>
-                        <option value="自分の才能や強みを知りたい">自分の才能や強みを知りたい</option>
-                        <option value="ブレない価値観や自分軸をみつけたい">ブレない価値観や自分軸をみつけたい</option>
-                        <option value="転職をしたい">転職をしたい</option>
-                        <option value="起業・複業をしたい">起業・複業をしたい</option>
-                        <option value="収入の柱を増やしたい">収入の柱を増やしたい</option>
-                        <option value="仕事と子育ての両立に悩んでいる">仕事と子育ての両立に悩んでいる</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
-                <label class="question">
-                    <select id="limit" name="limit">
-                        <option value="今すぐにでも解決したい">今すぐにでも解決したい</option>
-                        <option value="半年以内に解決したい">半年以内に解決したい</option>
-                        <option value="１年以内に解決したい">１年以内に解決したい</option>
-                        <option value="2〜3年以内に解決したい">2〜3年以内に解決したい</option>
-                    </select>
-                </label>
-            </div>
+            <!-- 
             <div>
                 <p class="q_text">ミアビータについて当てはまるものはどれですか？</p>
                 <label class="question">
