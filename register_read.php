@@ -65,7 +65,7 @@ try {
         <!-- 🔽 にforeachで取得したデータが入る -->
         <!-- <?= $output ?> -->
         <P>Name：<?= $_SESSION['u_name'] ?></P>
-        <h3>保有ポイント：○○○ポイント（有効期限：202△年△月△日）</h3>
+        <!-- <h3>保有ポイント：○○○ポイント（有効期限：202△年△月△日）</h3> -->
         <P>Email：<?= $_SESSION['u_email'] ?></P>
         <P>年代：<?= $_SESSION['age'] ?></P>
         <P>ワークスタイル：<?= $_SESSION['workstyle'] ?></P>
@@ -73,12 +73,12 @@ try {
         <P>キャリアのお悩み：<?= $_SESSION['worry'] ?></P>
         <P>解決時期：<?= $_SESSION['urgency'] ?></P>
         <P>ミアビータを何で知りましたか？：<?= $_SESSION['find'] ?></P><br>
-        <P><button>編集</button>　マイページ情報の変更が行えます。</P>
-        <P><button>退会</button>　会員の退会処理を行えます。</P>
+        <P><a href='user_edit.php?id={$record["id"]}'><button>編集</button></a>　マイページ情報の変更が行えます。</P>
+        <P><a href='user_delete.php?id={$record["id"]}'><button>退会</button></a>　退会処理を行うとすべてのデータが削除されます。復元はできません。</P>
 
     </fieldset>
 
-    <a href="free_page.php">マイページへ戻る</a>
+    <a href="paid_page.php">マイページへ戻る</a>
 
 </body>
 

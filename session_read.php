@@ -25,7 +25,9 @@ foreach ($result as $record) {
       <td>{$record["session_date"]}</td><br><br>
       <td>サポーター：{$record["supporter"]}</td><br><br>
       <td>相談内容：{$record["session_content"]}</td><br><br>
-      <td>振返メモ：{$record["session_memo"]}</td>
+      <td>振返メモ：{$record["session_memo"]}</td><br><br>
+      <a href='session_edit.php?id={$record["id"]}'>編集</a>
+      <a href='session_delete.php?id={$record["id"]}'>削除</a>
     </tr>
     </fieldset><br>
   ";
@@ -42,15 +44,26 @@ foreach ($result as $record) {
     <title>Document</title>
 </head>
 
+<style>
+    .output_wrapper {
+        margin-top: 30px;
+    }
+</style>
+
+
 <body>
+
     <h2><?= $_SESSION['u_name'] ?> さんのセッション履歴一覧</h2>
-    <tbody>
-        <?= $output ?>
-    </tbody>
     <div class=session_list>
         <a href="session_input.php">セッション履歴入力画面へ</a>
     </div>
-    <a href="free_page.php">マイページへ戻る</a>
+    <a href="paid_page.php">マイページへ戻る</a>
+    <div class="output_wrapper">
+        <tbody>
+            <?= $output ?>
+        </tbody>
+    </div>
+
 </body>
 
 </html>

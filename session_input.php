@@ -67,7 +67,7 @@ check_session_id();
     <div class=session_list>
         <a href="session_read.php">セッション履歴一覧</a>
     </div>
-    <a href="free_page.php">マイページへ戻る</a>
+    <a href="paid_page.php">マイページへ戻る</a>
 
 </body>
 

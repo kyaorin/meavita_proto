@@ -10,9 +10,27 @@
 </head>
 
 <style>
+    .register_title {
+        background-color: #cee4e2;
+    }
+
     h2 {
         text-align: center;
-        margin-top: 40px;
+        margin: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+
+    .top_logo {
+        width: 200px;
+        padding: 10px 100px;
+    }
+
+
+    .title_text {
+        padding-top: 30px;
+        text-align: center;
     }
 
     .button_row_1 {
@@ -27,108 +45,111 @@
 </style>
 
 <body>
-    <div class="register_wrapper">
-        <div class="register_title">
-            <h2>ミアビータ無料会員登録</h2>
-            <p>会員登録いただきますと、専用ページにて会員限定コンテンツがご利用いただけます。</p>
+    <div class="logo_wrapper"><img class="top_logo" src="img/meavita_logo.jpg" alt="ミアビータロゴ"></div>
+    <div class="register_title">
+        <h2>こんなお悩みを抱えていませんか？</h2>
+        <img src=" img/worry_list2.png" alt="よくあるお悩み">
+        <h2>ミアビータは、そんなあなたのお悩みを解決します。</h2>
+    </div>
+    <h3 class="title_text">無料会員登録すると、今なら<br>3つの特典プレゼント！</h3>
+    <div class="button_row_1">
+        <img id="lifeplan" src="img/test3.png" alt="診断テスト">
+        <img id="lifeplan" src="img/movie_program3.png" alt="動画プログラム">
+        <img id="lifeplan" src="img/free_session3.png" alt="初回30分無料相談">
+    </div>
+    <h3 class="title_text">さらに！ご登録いただくと<br>自分らしいキャリアを叶えるヒントや情報を毎週メルマガでお届け📧</h3>
+    <h2>今すぐ登録！</h2>
+    <form method="POST" action="register_create.php" class="qa_wrapper">
+        <div>
+            <p class="q_text">Name</p>
+            <input class="textarea" type="text" id="name" name="name">
         </div>
-        <div class="button_row_1">
-            <img id="lifeplan" src="img/test.png" alt="診断テスト">
-            <img id="lifeplan" src="img/movie_program.png" alt="動画プログラム">
-            <img id="lifeplan" src="img/free_session.png" alt="初回30分無料相談">
+        <div>
+            <p class="q_text">Email</p>
+            <input class="textarea" type="text" id="email" name="email">
         </div>
-        <h2>今すぐ登録！</h2>
-        <form method="POST" action="register_create.php" class="qa_wrapper">
-            <div>
-                <p class="q_text">Name</p>
-                <input class="textarea" type="text" id="name" name="name">
-            </div>
-            <div>
-                <p class="q_text">Email</p>
-                <input class="textarea" type="text" id="email" name="email">
-            </div>
-            <div>
-                <p class="q_text">Password（6桁以上の英数字）</p>
-                <input class="textarea" type="text" id="password" name="password">
-            </div>
-            <div>
-                <p class="q_text">年代</p>
-                <label class="question">
-                    <select id="age" name="age">
-                        <option value="40代">40代</option>
-                        <option value="30代">30代</option>
-                        <option value="50代">50代</option>
-                        <option value="20代">20代</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">ワークスタイル</p>
-                <label class="question">
-                    <select id="workstyle" name="workstyle">
-                        <option value="正社員">正社員</option>
-                        <option value="自営業">自営業</option>
-                        <option value="パラレルキャリア">パラレルキャリア</option>
-                        <option value="派遣社員">派遣社員</option>
-                        <option value="パート・アルバイト">パート・アルバイト</option>
-                        <option value="専業主婦（主夫）">専業主婦（主夫）</option>
-                        <option value="その他">その他</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">お子様の有無</p>
-                <label class="question">
-                    <select id="children" name="children">
-                        <option value="いる">いる</option>
-                        <option value="いない">いない</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">今一番、解決したいキャリアのお悩みは何ですか？</p>
-                <label class="question">
-                    <select id="worry" name="worry">
-                        <option value="仕事にやりがいを感じられない">仕事にやりがいを感じられない</option>
-                        <option value="自分の才能や強みを知りたい">自分の才能や強みを知りたい</option>
-                        <option value="ブレない価値観や自分軸をみつけたい">ブレない価値観や自分軸をみつけたい</option>
-                        <option value="転職をしたい">転職をしたい</option>
-                        <option value="起業・複業をしたい">起業・複業をしたい</option>
-                        <option value="収入の柱を増やしたい">収入の柱を増やしたい</option>
-                        <option value="仕事と子育ての両立に悩んでいる">仕事と子育ての両立</option>
-                        <option value="その他">その他</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
-                <label class="question">
-                    <select id="urgency" name="urgency">
-                        <option value="今すぐにでも解決したい">今すぐにでも解決したい</option>
-                        <option value="半年以内に解決したい">半年以内に解決したい</option>
-                        <option value="１年以内に解決したい">１年以内に解決したい</option>
-                        <option value="2〜3年以内に解決したい">2〜3年以内に解決したい</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <p class="q_text">ミアビータを何で知りましたか？</p>
-                <label class="question">
-                    <select id="find" name="find">
-                        <option value="Voicy">Voicy</option>
-                        <option value="Instagram">Instagram</option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Twitter">Twitter</option>
-                        <option value="ネット検索">ネット検索</option>
-                        <option value="メディア">メディア</option>
-                        <option value="イベント">イベント</option>
-                        <option value="紹介">紹介</option>
-                        <option value="その他">その他</option>
-                    </select>
-                </label>
-            </div>
+        <div>
+            <p class="q_text">Password（6桁以上の英数字）</p>
+            <input class="textarea" type="text" id="password" name="password">
+        </div>
+        <div>
+            <p class="q_text">年代</p>
+            <label class="question">
+                <select id="age" name="age">
+                    <option value="40代">40代</option>
+                    <option value="30代">30代</option>
+                    <option value="50代">50代</option>
+                    <option value="20代">20代</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="q_text">ワークスタイル</p>
+            <label class="question">
+                <select id="workstyle" name="workstyle">
+                    <option value="正社員">正社員</option>
+                    <option value="自営業">自営業</option>
+                    <option value="パラレルキャリア">パラレルキャリア</option>
+                    <option value="派遣社員">派遣社員</option>
+                    <option value="パート・アルバイト">パート・アルバイト</option>
+                    <option value="専業主婦（主夫）">専業主婦（主夫）</option>
+                    <option value="その他">その他</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="q_text">お子様の有無</p>
+            <label class="question">
+                <select id="children" name="children">
+                    <option value="いる">いる</option>
+                    <option value="いない">いない</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="q_text">今一番、解決したいキャリアのお悩みは何ですか？</p>
+            <label class="question">
+                <select id="worry" name="worry">
+                    <option value="仕事にやりがいを感じられない">仕事にやりがいを感じられない</option>
+                    <option value="自分の才能や強みを知りたい">自分の才能や強みを知りたい</option>
+                    <option value="ブレない価値観や自分軸をみつけたい">ブレない価値観や自分軸をみつけたい</option>
+                    <option value="転職をしたい">転職をしたい</option>
+                    <option value="起業・複業をしたい">起業・複業をしたい</option>
+                    <option value="収入の柱を増やしたい">収入の柱を増やしたい</option>
+                    <option value="仕事と子育ての両立に悩んでいる">仕事と子育ての両立</option>
+                    <option value="その他">その他</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="q_text">そのキャリアの悩みをいつまでに解決したいですか？</p>
+            <label class="question">
+                <select id="urgency" name="urgency">
+                    <option value="今すぐにでも解決したい">今すぐにでも解決したい</option>
+                    <option value="半年以内に解決したい">半年以内に解決したい</option>
+                    <option value="１年以内に解決したい">１年以内に解決したい</option>
+                    <option value="2〜3年以内に解決したい">2〜3年以内に解決したい</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="q_text">ミアビータを何で知りましたか？</p>
+            <label class="question">
+                <select id="find" name="find">
+                    <option value="Voicy">Voicy</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="ネット検索">ネット検索</option>
+                    <option value="メディア">メディア</option>
+                    <option value="イベント">イベント</option>
+                    <option value="紹介">紹介</option>
+                    <option value="その他">その他</option>
+                </select>
+            </label>
+        </div>
 
-            <!-- 
+        <!-- 
             <div>
                 <p class="q_text">ミアビータについて当てはまるものはどれですか？</p>
                 <label class="question">
@@ -141,5 +162,5 @@
                     </select>
                 </label>
             </div> -->
-            <button type="submit" id="send" class="send">登録</button>
-        </form>
+        <button type="submit" id="send" class="send">登録する</button>
+    </form>

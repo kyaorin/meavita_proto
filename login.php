@@ -23,7 +23,7 @@
         </ul>
         <p class="today_words">Connecting the dots</p>
 
-        <button class="new_register" id="new_register">新規登録</button>
+        <button class="new_register" id="new_register">無料会員登録</button>
 
         <form action="login_act.php" method="POST">
             <div class="login_wrapper">
